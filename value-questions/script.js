@@ -4,7 +4,16 @@ const questions = [
     "Describe what you would do on an ideal day. How does this compare with a typical day?",
     "Describe one of your close friends. What makes you close?",
     "Imagine it’syour birthday 15 years from now. Your friends and family give speeches about your life. What do you think they say?",
-    "What is your dream job, and why?"
+    "What is your dream job, and why?",
+    "Imagine you come into a large fortune that allows you to never work again, and buy anything you want. What would you do?",
+    "What are your three most prized possessions?",
+    "When you were younger, what were your wishes for the future?",
+    "A genie in a bottle appears and grants you three wishes. What do you wish for?",
+    "What three things do you find yourself thinking of most often?",
+    "What are your goals in different areas of life (professional, family, and personal)?",
+    "If you could send a message to everyone on Earth, what would it be?",
+    "What would someone who knows you well say is important to you?",
+    "What does “success” mean to you? How does society define “success”?"
 ]
 
 class AudioController {
