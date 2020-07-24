@@ -1,16 +1,10 @@
 
 const questions = [
-    "What pizza toppings do you like?",
-    "Which side of the bed do you prefer to sleep on?",
-    "What would you do if the world was ending?",
-    "Do you believe in the heart of the cards?",
-    "What makes you feel warm and fuzzy?",
-    "Do you believe in leprechauns? Why not?",
-    "Would you choose money or friendship?",
-    "Do you like to take naps?",
-    "Do you like cats or dogs?",
-    "How many fingers do you have?",
-    "How many hours of sleep do you get?"
+    "Name a person (real or fictional) you respect or admire. What traits of theirs do you appreciate?",
+    "Describe what you would do on an ideal day. How does this compare with a typical day?",
+    "Describe one of your close friends. What makes you close?",
+    "Imagine it’syour birthday 15 years from now. Your friends and family give speeches about your life. What do you think they say?",
+    "What is your dream job, and why?"
 ]
 
 class AudioController {
