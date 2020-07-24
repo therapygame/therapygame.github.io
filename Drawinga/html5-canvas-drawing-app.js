@@ -434,7 +434,7 @@ mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetT
 			crayonTextureImage.src = "images/crayon-texture.png";
 
 			outlineImage.onload = resourceLoaded;
-			outlineImage.src = "images/face.jpg";
+			outlineImage.src = "images/face.png";
 		};
 
 	return {
