@@ -32,9 +32,9 @@ em {
 }
 
 .brown-button {
-	-moz-box-shadow: 3px 4px 0px 0px #5D4037;
-	-webkit-box-shadow: 3px 4px 0px 0px #5D4037;
-	box-shadow: 3px 4px 0px 0px #5D4037;
+	-moz-box-shadow: 3px 4px 0px 0px #6c9488;
+	-webkit-box-shadow: 3px 4px 0px 0px #6c9488;
+	box-shadow: 3px 4px 0px 0px #6c9488;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #A1887F), color-stop(1, #795548));
 	background: -moz-linear-gradient(top, #A1887F 5%, #795548 100%);
 	background: -webkit-linear-gradient(top, #A1887F 5%, #795548 100%);
@@ -285,7 +285,7 @@ h1 {
 }
 
 .page-footer-link {
-    color: #5D4037;
+    color: #6c9488;
     font-weight: 700;
 }
 
