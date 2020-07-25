@@ -35,32 +35,20 @@ em {
 	-moz-box-shadow: 3px 4px 0px 0px #6c9488;
 	-webkit-box-shadow: 3px 4px 0px 0px #6c9488;
 	box-shadow: 3px 4px 0px 0px #6c9488;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #A1887F), color-stop(1, #795548));
-	background: -moz-linear-gradient(top, #A1887F 5%, #795548 100%);
-	background: -webkit-linear-gradient(top, #A1887F 5%, #795548 100%);
-	background: -o-linear-gradient(top, #A1887F 5%, #795548 100%);
-	background: -ms-linear-gradient(top, #A1887F 5%, #795548 100%);
-	background: linear-gradient(to bottom, #A1887F 5%, #795548 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#A1887F', endColorstr='#795548',GradientType=0);
-	background-color: #A1887F;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#81b4a5', endColorstr='#628d80',GradientType=0);
+	background-color: #81b4a5;
 	-moz-border-radius: 0.2em;
 	-webkit-border-radius: 0.2em;
 	border-radius: 0.3em;
-	border: 1px solid #6D4C41;
+	border: 1px solid #81b4a5;
 	font-size: 1.2em;
 	font-weight: bold;
-	text-shadow: 0px 1px 0px #8D6E63;
+	text-shadow: 0px 1px 0px #81b4a5;
 }
 
 .brown-button:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, #A1887F));
-	background: -moz-linear-gradient(top, #795548 5%, #A1887F 100%);
-	background: -webkit-linear-gradient(top, #795548 5%, #A1887F 100%);
-	background: -o-linear-gradient(top, #795548 5%, #A1887F 100%);
-	background: -ms-linear-gradient(top, #795548 5%, #A1887F 100%);
-	background: linear-gradient(to bottom, #795548 5%, #A1887F 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#795548', endColorstr='#A1887F',GradientType=0);
-	background-color: #795548;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#628d80', endColorstr='#81b4a5',GradientType=0);
+	background-color: #628d80;
 }
 
 .brown-button:active {
@@ -89,7 +77,7 @@ h1 {
 .tool-tip button {
     background: none;
     border: none;
-    color: #000000;
+    color: #FFFFFF;
     font-size: 1.6em;
     font-weight: 900;
 }
@@ -97,7 +85,7 @@ h1 {
 .tool-tip .tool-tip-text {
     visibility: hidden;
     width: 5.5em;
-    background-color: #000000;
+    background-color: #FFFFFF;
     color: #FFFFFF;
     text-align: center;
     padding: 5px 0;
@@ -151,7 +139,7 @@ h1 {
 .restart-btn {
     background: none;
     border: none;
-    color: #000000;
+    color: #FFFFFF;
     font-size: 1.6em;
     font-weight: 900;
 }
@@ -160,7 +148,7 @@ h1 {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #A1887F;
+    background-color: #81b4a5;
     border-radius: 0.3em;
     box-shadow: 0 5px 5px #808080;
 }
@@ -173,7 +161,7 @@ h1 {
 .game-card {
     width: 4.5em;
     height: 4.5em;
-    background-color: #212121;
+    background-color: #FFFFFF;
     border-radius: 0.3em;
     margin: 0.8em;
     box-shadow: 2px 0 10px #212121;
@@ -300,7 +288,7 @@ h1 {
 }   
 
 .page-footer-link:focus {
-    outline: #A1887F auto 5px;
+    outline: #81b4a5 auto 5px;
 }
 
 .page-footer-link:visited {
