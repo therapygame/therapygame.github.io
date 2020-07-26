@@ -108,7 +108,7 @@
             <img id="Angry2" src="emotion/Angry.png">
             <img id="Excited2" src="emotion/Excited.png">
             <img id="Silly2" src="emotion/Silly.png">
-            <img id="Sad2" src="emotion/Sad.png">
+            <img id="sad2" src="emotion/Sad.png">
             <img id="Sick2" src="emotion/Sick.png">
             <img id="Surprised2" src="emotion/Surprised.png">
         </div>   
@@ -172,7 +172,6 @@
 					
 						let display = $('#display');
 						if(arg == 6){
-							playAudio();	
 							display.html(`<p style="color: green; text-align: center; font-weight: bold">Brilliant! <br/> You've successfully matched all the Emotion words</p>`).dialog({width:200,resizeable:false, modal: true});
 						}else{
 							playSnap();
