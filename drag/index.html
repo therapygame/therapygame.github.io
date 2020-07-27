@@ -1,0 +1,44 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
+    <script>
+        function addimage(name) {
+            console.log(name);
+            console.log("what");
+            var img = document.createElement("img");
+            img.src = "images/" + name + ".png";
+            img.height = 250;
+            img.width = 250;
+
+            var class_name = "foo";
+            img.setAttribute("class", class_name);
+
+            document.getElementById("myDiagramDiv").appendChild(img);
+            $("myDiagramDiv").resizable();
+            $(img).draggable({containment:'#myDiagramDiv'});
+        }
+    </script>
+</head>
+
+<div class="col-sm-7 text">
+    <h1>
+        <strong>Div for the images</strong>
+    </h1>
+    <div class="description">
+        <div id="myDiagramDiv" style="display:inline-block; width:1000px; height:1000px;"></div>
+    </div>
+</div>
+<div class="col-sm-5 text">
+    <div class="description">
+        <h1>
+            <strong>Text</strong>
+        </h1>
+    </div>
+    <img src="images/dance.png" id="dance" onclick="addimage(this.id)" style="height:200px;width:200px"/>
+    <img src="images/sleepy.png" id="sleepy" onclick="addimage(this.id)" style="height:200px;width:200px"/>
+    <img src="images/nana.png" id="nana" onclick="addimage(this.id)" style="height:200px;width:200px"/>
+    <img src="images/thumb.png" id="thumb" onclick="addimage(this.id)" style="height:200px;width:200px"/>
+</div>
