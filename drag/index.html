@@ -1,44 +1,48 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-
     <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
-
+    <link rel="stylesheet" href="styles.css" />
     <script>
         function addimage(name) {
-            console.log(name);
-            console.log("what");
             var img = document.createElement("img");
             img.src = "images/" + name + ".png";
-            img.height = 250;
-            img.width = 250;
-
-            var class_name = "foo";
-            img.setAttribute("class", class_name);
+            img.height = 500;
+            img.width = 500;
+            img.id = name;
+            $(img).on('dblclick', function() {
+                $(img).remove();
+            });
 
             document.getElementById("myDiagramDiv").appendChild(img);
             $("myDiagramDiv").resizable();
             $(img).draggable({containment:'#myDiagramDiv'});
         }
+        
     </script>
+
+    
 </head>
 
-<div class="col-sm-7 text">
-    <h1>
-        <strong>Div for the images</strong>
-    </h1>
-    <div class="description">
-        <div id="myDiagramDiv" style="display:inline-block; width:1000px; height:1000px;"></div>
-    </div>
-</div>
-<div class="col-sm-5 text">
+<div class="col-sm-5 text" style="float:left;max-width:40%;max-height:75%;overflow:auto;">
     <div class="description">
         <h1>
-            <strong>Text</strong>
+            <strong>Click image to use</strong>
         </h1>
     </div>
-    <img src="images/dance.png" id="dance" onclick="addimage(this.id)" style="height:200px;width:200px"/>
-    <img src="images/sleepy.png" id="sleepy" onclick="addimage(this.id)" style="height:200px;width:200px"/>
-    <img src="images/nana.png" id="nana" onclick="addimage(this.id)" style="height:200px;width:200px"/>
-    <img src="images/thumb.png" id="thumb" onclick="addimage(this.id)" style="height:200px;width:200px"/>
+    <img src="images/mouth.png" id="mouth" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth2.png" id="mouth2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth3.png" id="mouth3" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth4.png" id="mouth4" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth5.png" id="mouth5" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye2.png" id="eye2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye.png" id="eye" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye3.png" id="eye3" onclick="addimage(this.id)" class="imglist"/>
+</div>
+<div class="col-sm-7 text">
+    <h1>
+        <strong>Create emotional face</strong>
+    </h1>
+    <div class="description">
+        <div id="myDiagramDiv" style="background-image:url('images/face.png'); background-size: cover;display:inline-block; width:1000px; height:1000px;"></div>
+    </div>
 </div>
