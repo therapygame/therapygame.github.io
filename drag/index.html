@@ -7,6 +7,7 @@
             var img = document.createElement("img");
             img.src = "images/" + name + ".png";
             img.id = name;
+            img.height = 100
             $(img).on('dblclick', function() {
                 $(img).remove();
             });
@@ -24,11 +25,11 @@
 <div class="col-sm-5 text" style="float:left;max-width:40%;max-height:100%;overflow:auto;">
     <div class="description">
         <h1>
-            <h1 style="font-size:2cm; text-align:left; padding-top:50px; padding-left: 20px;">
+            <h1 style="font-size:0.5cm; text-align:left; padding-top:50px; padding-left: 20px;">
             <strong> </strong>
         </h1>
     </div>
-    <img src="images/eye girl.png" id="eye girl" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye girl.png" id="eye girl" onclick="addimage(this.id)"; class="imglist"/>
     <img src="images/eye girl1.png" id="eye girl1" onclick="addimage(this.id)" class="imglist"/>
     <img src="images/eye girl2.png" id="eye girl2" onclick="addimage(this.id)" class="imglist"/>
     <img src="images/mouth girl.png" id="mouth girl" onclick="addimage(this.id)" class="imglist"/>
@@ -47,7 +48,6 @@
     <img src="images/eye2.png" id="eye2" onclick="addimage(this.id)" class="imglist"/>
     <img src="images/eye3.png" id="eye3" onclick="addimage(this.id)" class="imglist"/>
     <img src="images/eye4.png" id="eye4" onclick="addimage(this.id)" class="imglist"/>
-    <img src="images/eye5.png" id="eye5" onclick="addimage(this.id)" class="imglist"/>
     <img src="images/eye6.png" id="eye6" onclick="addimage(this.id)" class="imglist"/>
 
 
@@ -62,6 +62,6 @@
         <strong></strong>
     </h1>
     <div class="description">
-        <div id="myDiagramDiv" style="background-image:url('images/face.png'); background-size: 45cm; background-repeat: no-repeat; background-position: center; width:2000px; height:1700px;display:inline-block;"></div>
+        <div id="myDiagramDiv" style="background-image:url('images/face.png'); background-size: 500px; background-repeat: no-repeat; background-position: top; width:700; height:500px;display:inline-block;"></div>
     </div>
 </div>

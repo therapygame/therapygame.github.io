@@ -1,10 +1,4 @@
-#imglist {
-    height: 50px;
-    width: 50px;
-    margin-inline-end: auto; 
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 10px;
-    justify-content: last baseline;
-    perspective: 100px;
+.imglist {
+    height: 100px;
+    width: 100px;
 }
