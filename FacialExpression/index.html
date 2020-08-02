@@ -1,0 +1,67 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+        function addimage(name) {
+            var img = document.createElement("img");
+            img.src = "images/" + name + ".png";
+            img.id = name;
+            img.height = 100
+            $(img).on('dblclick', function() {
+                $(img).remove();
+            });
+
+            document.getElementById("myDiagramDiv").appendChild(img);
+            $("myDiagramDiv").resizable();
+            $(img).draggable({containment:'#myDiagramDiv'});
+        }
+        
+    </script>
+
+    
+</head>
+
+<div class="col-sm-5 text" style="float:left;max-width:40%;max-height:100%;overflow:auto;">
+    <div class="description">
+        <h1>
+            <h1 style="font-size:0.5cm; text-align:left; padding-top:50px; padding-left: 20px;">
+            <strong> </strong>
+        </h1>
+    </div>
+    <img src="images/eye girl.png" id="eye girl" onclick="addimage(this.id)"; class="imglist"/>
+    <img src="images/eye girl1.png" id="eye girl1" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye girl2.png" id="eye girl2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth girl.png" id="mouth girl" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth girl1.png" id="mouth girl1" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth girl2.png" id="mouth girl2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eyebrow girl1.png" id="eyebrow girl1" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eyebrow girl2.png" id="eyebrow girl2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth.png" id="mouth" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth2.png" id="mouth2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth3.png" id="mouth3" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth4.png" id="mouth4" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth5.png" id="mouth5" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth 6.png" id="mouth 6" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/mouth 7.png" id="mouth 7" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye.png" id="eye" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye2.png" id="eye2" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye3.png" id="eye3" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye4.png" id="eye4" onclick="addimage(this.id)" class="imglist"/>
+    <img src="images/eye6.png" id="eye6" onclick="addimage(this.id)" class="imglist"/>
+
+
+
+
+
+</div>
+
+</div>
+<div class="col-sm-7 text">
+    <h1 style="font-size:2cm; text-align:left; padding-top:50px;">
+        <strong></strong>
+    </h1>
+    <div class="description">
+        <div id="myDiagramDiv" style="background-image:url('images/face.png'); background-size: 500px; background-repeat: no-repeat; background-position: top; width:700; height:500px;display:inline-block;"></div>
+    </div>
+</div>
