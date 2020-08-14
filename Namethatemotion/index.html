@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Name that emotion </title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    </h1>
+    <p> Name that emotion
+    <form method="GET" autocomplete="off" name="Name that emotion">
+      <figure id="the-figure">
+        <div>
+          <svg id="loading-icon" width="3em" height="0ex" x="0px" y="0px" viewBox="0 0 313.3 321.4" style="enable-background:new 0 0 313.3 321.4;" xml:space="preserve">
+            <path class="layer layer1" d="M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
+          c-45.8,21.5-91.7,42.9-137.6,64.3c-7.4,3.4-14.8,3.5-22.2,0C99,123.6,52.3,101.9,5.8,80c-2.4-1.1-5.4-4-5.4-6c0-2,3.1-4.8,5.5-5.9
+          C52.4,46.2,99.1,24.4,145.8,2.8C149.1,1.2,154.5,0,157.1,0z"/>
+            <path class="layer layer2" d="M156.6,235c-3.1,0-7.7-1.7-11.3-3.3c-46.5-21.6-93-43.3-139.4-65.1c-2.4-1.1-5.8-4.1-5.6-5.8c0.3-2.4,3.2-5,5.7-6.3
+          c7.5-4,15.3-7.3,23-10.9c7.9-3.7,15.7-3.6,23.6,0.1c30.4,14.3,61,28.4,91.4,42.7c8.6,4.1,16.8,4,25.4-0.1
+          c30.4-14.3,60.9-28.4,91.4-42.7c7.7-3.6,15.4-3.7,23.1-0.1c8.2,3.8,16.4,7.4,24.4,11.5c2.1,1.1,4.9,3.7,4.7,5.4
+          c-0.2,2.1-2.7,4.8-4.9,5.9c-46.8,22.1-93.7,44-140.7,65.8C164.2,233.5,159.9,235,156.6,235z"/>
+            <path class="layer layer3" d="M156.8,321.4c-4.6,0-9.3-2.3-13.4-4.2c-45.2-20.9-90.3-42-135.4-63.1c-3.3-1.5-8-2.1-8-7.1c0-5,3.8-5.5,7-7.1
+          c13.9-6.5,14.9-6.5,21.8-9.8c8-3.8,16-3.7,24.1,0.1c29.9,14,59.8,27.7,89.6,41.9c9.6,4.6,18.5,4.7,28.2,0.1 c29.8-14.2,59.8-27.9,89.6-41.9c8.2-3.9,16.3-4,24.5,0c7.8,3.8,15.8,7.2,23.5,11.1c2.1,1.1,4.8,3.3,4.8,5.4
+          c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.7,19.3C165.7,319.2,161.5,321.4,156.8,321.4z"/>
+          </svg>
+        </div>
+        <img id="image" class="no-border-class" height="200">
+        <figcaption id="counter"></figcaption>
+      </figure>
+      <fieldset id="guesswho">
+        <legend>Who is this?</legend>
+        <input type="radio" id="choice1" name="name" value="">
+        <label for="choice1" id="choice1text"></label>
+        <br>
+        <input type="radio" id="choice2" name="name" value="">
+        <label for="choice2" id="choice2text"></label>
+        <br>
+        <input type="radio" id="choice3" name="name" value="">
+        <label for="choice3" id="choice3text"></label>
+      </fieldset>
+      <input id="submit" type="submit" value="Submit">
+    </form>
+    <p id="notice" class="notice"></p>
+    <p id="score"></p>
+    <button id="play-next"><a href='#'>Next</a></button>
+    <button id="start-again"><a href=''>Play again?</a></button>
+    <br>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script type="text/javascript">
+
+      var data = {
+        // NB Use underscores in file names to separate multiple people and only multiple people.
+        'cold.jpg'         : {who: 'Cold'},
+        'disgusted.jpg'         : {who: 'Disgusted'},
+        'happy.jpg'  : {who: 'Happy'},
+        'hot.jpg'     : {who: 'Hot'},
+        'sad.jpg'          : {who: 'Sad'},
+        'shocked.jpg'         : {who: 'Shocked'},
+        'sick.jpg'               : {who: 'Sick'},
+        'sleepy.jpg'               : {who: 'Sleepy'}
+      };
+      var images = _.keys(data);
+      var answer_index;
+      var seen = {};
+      var num_seen = 0;
+      var num_guesses = 0;
+      var num_right_guesses = 0;
+      var right_first_time;
+      var num_images = images.length;
+
+      function displayFinalScore() {
+        const scorePercent = num_right_guesses / num_images * 100;
+        let judgement = '';
+        if (scorePercent === 100) {
+          judgement = 'You should have no difficulty recognising everyone on the next retreat!'
+        } else if (scorePercent >= 75) {
+          judgement = 'You should be able to recognise most people easily on the next retreat.'
+        } else if (scorePercent >= 25) {
+          judgement = 'You might struggle with the names of a few people on the next retreat.  You might need to play this game again before the next retreat!'
+        } else {
+          judgement = 'You don\'t seem to know very many people.  Perhaps you should play this game again before the next retreat!';
+        }
+        $('#score').html('You scored ' + num_right_guesses + '/' + num_images + ', which is ' + Math.round(scorePercent) + '&nbsp;&#37;.  ' + judgement);
+      }
+      function displayResult(correct, imageData) {
+        const correctMessage = '🥳 You named that emotion! ' + imageData.who + (imageData.what ? ', a ' + imageData.what : '') + '.  Well done!';
+        const incorrectMessage = '🤨 Try one more time' + imageData.who + '?  Try again!';
+        correct === true ? $('#notice').html(correctMessage) : $('#notice').html(incorrectMessage);
+      }
+
+      $(function() {
+
+        function reset() {
+//          console.log('reset invoked');
+          console.log('Data: ' + JSON.stringify(data));
+          console.log('Number of images: ' + num_images);
+          $('#guesswho').show();
+          $('#submit').show();
+          $('#play-next').hide();
+          $('#start-again').hide();
+          $('#counter').show();
+          var selected = $("input[type='radio'][name='name']:checked").prop('checked', false);
+          right_first_time = true;
+//          console.log('variables set');
+
+          // Any fewer than this, and weird behaviour is seen:
+          const numImagesReqd = 3;
+          if ( num_images < numImagesReqd ) {
+            console.error('Make sure there are at least ' + numImagesReqd + ' images given in \'data\'.  You supplied ' + images.length + ':\n' + images);
+            alert('Not enough images.  At least ' + numImagesReqd + ' images are required.');
+            return false;
+          } else {
+            while (true) {
+              answer_index = Math.floor ( num_images * Math.random() );
+              // console.log('Answer index: ' + answer_index + '; seen: ' + seen[answer_index]);
+              if ( !seen[answer_index] ) {
+                break;
+              } else {
+                // console.log(seen[answer_index]);
+              }
+            }
+            seen[answer_index] = true;
+            // console.log('Answer index: ' + answer_index + '; seen: ' + seen[answer_index]);
+            ++num_seen;
+            $('#counter').html('Image ' + num_seen + ' of ' + num_images + '.');
+            $('#loading-icon').show();
+            // console.log('Image attributes before load (margin top, margin bottom, padding):');
+            // console.log($('#image').css("marginTop"));
+            // console.log($('#image').css("marginBottom"));
+            // console.log($('#image').css("paddingTop"));
+            // console.log('Figure attributes before load (margin top, margin bottom, padding):');
+            // console.log($('#the-figure').css("marginTop"));
+            // console.log($('#the-figure').css("marginBottom"));
+            // console.log($('#the-figure').css("paddingTop"));
+            // alert('image about to be loaded');
+            $('#image').load( function() {
+              // console.log($('#the-figure').attr("marginTop", 0));
+              // console.log($('#image').attr("marginTop", 0));
+
+              $('#image').attr("display","hidden");
+              // console.log('Image display attribute:');
+              // console.log($('#image').css("display"));
+              $('#loading-icon').hide();
+              $('#image').removeClass('no-border-class');
+
+            //   console.log('image loaded');
+            //   console.log('Image attributes during load (margin top, margin bottom, padding):');
+            //   console.log($('#image').css("marginTop"));
+            //   console.log($('#image').css("marginBottom"));
+            //   console.log($('#image').css("paddingTop"));
+            //   console.log('Figure attributes during load (margin top, margin bottom, padding):');
+            //   console.log($('#the-figure').css("marginTop"));
+            //   console.log($('#the-figure').css("marginBottom"));
+            //   console.log($('#the-figure').css("paddingTop"));
+            }).attr('src', 'img/' + images[answer_index]);
+            // console.log('Image attributes after load (margin top, margin bottom, padding):');
+            // console.log($('#image').css("marginTop"));
+            // console.log($('#image').css("marginBottom"));
+            // console.log($('#image').css("paddingTop"));
+            // console.log('Figure attributes after load (margin top, margin bottom, padding):');
+            // console.log($('#the-figure').css("marginTop"));
+            // console.log($('#the-figure').css("marginBottom"));
+            // console.log($('#the-figure').css("paddingTop"));
+            $('#notice').html('');
+            $('#play-next').hide();
+
+            var choices = {};
+            choices[answer_index] = true;
+
+            while (true) {
+              var index = Math.floor ( num_images * Math.random() );
+              if ( !choices[index] ) {
+                if ( ( ( images[index].indexOf('_') != -1 ) && ( images[answer_index].indexOf('_') != -1 ) ) ||
+                     ( ( images[index].indexOf('_') == -1 ) && ( images[answer_index].indexOf('_') == -1 ) ) ) {
+                  break;
+                }
+              }
+            }
+            choices[index] = true;
+            while (true) {
+              var index = Math.floor ( num_images * Math.random() );
+              if ( !choices[index] ) {
+                if ( ( ( images[index].indexOf('_') != -1 ) && ( images[answer_index].indexOf('_') != -1 ) ) ||
+                     ( ( images[index].indexOf('_') == -1 ) && ( images[answer_index].indexOf('_') == -1 ) ) ) {
+                  break;
+                }
+              }
+            }
+            choices[index] = true;
+            var image_choices = _.map(_.keys(choices), function(choice){
+              return images[choice];
+            });
+
+            image_choices = _.shuffle(image_choices);
+
+            $('#choice1').val(image_choices[0]);
+            $('#choice1text').text(data[image_choices[0]].who);
+
+            $('#choice2').val(image_choices[1]);
+            $('#choice2text').text(data[image_choices[1]].who);
+
+            $('#choice3').val(image_choices[2]);
+            $('#choice3text').text(data[image_choices[2]].who);
+          }
+        };
+
+        $('#play-next').click(function(event) {
+         // console.log('play next: ' + event.type);
+//          alert('play next: ' + event.type);
+          event.preventDefault();
+          reset();
+          return false;
+        });
+
+        $('#submit').click(function(event) {
+         // console.log('submit: ' + event.type);
+          event.preventDefault();
+          var selected = $("input[type='radio'][name='name']:checked").val();
+          // console.log('Selected: ' + selected);
+          if (typeof selected === 'undefined') {
+            return false;
+          } else {
+            if ( selected == images[answer_index] ) {
+              if (num_seen == images.length) {
+                if ( right_first_time ) {
+                  ++num_right_guesses;
+                }
+                // console.log(data[selected]);
+                displayResult(true, data[selected]);
+                displayFinalScore();
+                $('#play-next').hide();
+                $('#guesswho').hide();
+                $('#submit').hide();
+                $('#start-again').show();
+                $('#counter').hide();
+                return;
+              } else {
+                if ( right_first_time ) {
+                  ++num_right_guesses;
+                }
+                // console.log(data[selected]);
+                displayResult(true, data[selected]);
+                $('#play-next').show();
+                $('#guesswho').hide();
+                $('#submit').hide();
+              }
+            } else if ( selected ) {
+              right_first_time = false;
+              displayResult(false, data[selected]);
+            }
+            // console.log('Score: ' + num_right_guesses + '/' + num_seen);
+            return false;
+          }
+        });
+
+        reset();
+
+      });
+    </script>
+  </body>
+
+</html>

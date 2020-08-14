@@ -1,0 +1,241 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Small screen browsers (smartphones) */
+body {
+  text-rendering: optimizeLegibility;
+  width: 100%;
+}
+fieldset {
+  width: 80%;
+}
+/* Medium-sized screen browsers (tablets) */
+@media only screen and (min-width: 600px) {
+  @viewport {
+    width: 600px;
+  }
+  body {
+    width: 75%;
+  }
+  fieldset {
+    width: 200px;
+  }
+  /* Link to GitHub */
+  .to-github {
+    margin-bottom: 2ex;
+  }
+}
+/* Larger screen browsers (laptops and desktops) */
+@media only screen and (min-width: 740px) {
+  @viewport {
+    width: 100%;
+  }
+  body {
+    width: 75%;
+  }
+  fieldset {
+    width: 300px;
+  }
+  /* Link to GitHub */
+  .to-github {
+    top: 1.5ex;
+    position: absolute;
+    margin-bottom: 2ex;
+    right: calc(5%);
+  }
+}
+
+
+body {
+  display: block;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: auto;
+  padding: 0 1em;
+  text-align: center;
+}
+
+abbr {
+  cursor: help;
+}
+
+fieldset {
+  font-size: 120%;
+  display: block;
+  margin: auto;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  text-align: left;
+}
+legend {
+  text-align: center;
+}
+label {
+  cursor: default;
+  font-size: 80%;
+}
+
+button,
+fieldset,
+figure,
+img,
+input[type=submit] {
+  background-color: hsla(270, 50%, 90%);
+  border: 1px groove hsl(270, 50%, 50%);
+  color: inherit;
+}
+img.no-border-class {
+  border: none;
+}
+
+button,
+input[type=submit] {
+  background-color: hsl(270, 90%, 90%);
+  color: inherit;
+  font-size: 100%;
+  margin-top: 3ex;
+}
+button:hover,
+input[type=submit]:hover {
+  border-style: ridge;
+}
+
+button a {
+  color: initial;
+  text-decoration: none;
+}
+
+/* Rounded corners */
+button,
+fieldset,
+figure,
+img,
+input[type=submit] {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+figure {
+  display: inline-block;
+/*  margin-top: 1ex;
+  margin-bottom: 1em;
+  margin-left: 1ex;
+  margin-right: 1ex;
+*/  min-width: calc(25% - 8px);
+}
+figcaption {
+  display: block;
+}
+img {
+  margin: 1em 1ex;
+  padding: 0;
+}
+
+.notice {
+}
+
+/* Link to GitHub */
+.to-github {
+  margin-bottom: 2ex;
+}
+
+
+/* Animated loading icon */
+figure div svg#loading-icon {
+  position: absolue;
+  top: 100%;
+  left: 0%;
+  -ms-transform: translateY(250%);
+  -moz-transform: translateY(250%);
+  -webkit-transform: translateY(250%);
+  transform: translateY(250%);
+}
+.layer {
+  fill: hsl(270, 50%, 50%);
+}
+@-webkit-keyframes layer1 {
+  0%, 65% {
+    fill: hsl(270, 90%, 90%);
+  }
+  75%, 82% {
+    fill: hsl(270, 50%, 50%);
+  }
+  92%, 100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+@-webkit-keyframes layer2 {
+  0%, 40% {
+    fill: hsl(270, 90%, 90%);
+  }
+  50%, 86% {
+    fill: hsl(270, 50%, 50%);
+  }
+  96%, 100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+@-webkit-keyframes layer3 {
+  0%, 15% {
+    fill: hsl(270, 90%, 90%);
+  }
+  25%, 90% {
+    fill: hsl(270, 50%, 50%);
+  }
+  100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+@keyframes layer1 {
+  0%, 65% {
+    fill: hsl(270, 90%, 90%);
+  }
+  75%, 82% {
+    fill: hsl(270, 50%, 50%);
+  }
+  92%, 100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+@keyframes layer2 {
+  0%, 40% {
+    fill: hsl(270, 90%, 90%);
+  }
+  50%, 86% {
+    fill: hsl(270, 50%, 50%);
+  }
+  96%, 100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+@keyframes layer3 {
+  0%, 15% {
+    fill: hsl(270, 90%, 90%);
+  }
+  25%, 90% {
+    fill: hsl(270, 50%, 50%);
+  }
+  100% {
+    fill: hsl(270, 90%, 90%);
+  }
+}
+.layer {
+  -webkit-animation: 2s linear infinite;
+  animation: 0.5s linear infinite;
+}
+.layer1 {
+  -webkit-animation-name: layer1;
+  animation-name: layer1;
+}
+.layer2 {
+  -webkit-animation-name: layer2;
+  animation-name: layer2;
+}
+.layer3 {
+  -webkit-animation-name: layer3;
+  animation-name: layer3;
+}
